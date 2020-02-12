@@ -1,8 +1,10 @@
 from tictactoe import Board
+from modelView import ModelView
 
 board = Board()
-board.display_board()
-board.play_game()
+viewer = ModelView()
+viewer.update_view(board.get_board())
+#board.play_game()
 
 #if __name__ == '__main__':
 #    board = Board()
