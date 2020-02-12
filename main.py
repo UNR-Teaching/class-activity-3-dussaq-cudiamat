@@ -1,6 +1,5 @@
 from tictactoe import Board
 
-
 board = Board()
 board.display_board()
 board.play_game()
