@@ -1,11 +1,13 @@
 from tictactoe import Board
 from playToken import PlayToken
+from modelView import ModelView
 
 
 class Board_controller:
     def __init__(self, b:Board):
         self.board = b
         self.currentToken = PlayToken.X
+        self.model = ModelView()
 
     def mark_square(self, column:int, row:int, token:PlayToken):
         return self.board.mark_square(column, row, token)
@@ -27,6 +29,10 @@ class Board_controller:
                     self.currentToken = PlayToken.O
                 else:
                     self.currentToken = PlayToken.X
+            else:
+                print("Invalid Move!")
+            self.model.update_view(self.board.get_board())
+            
 
     def start_game(self):
         while self.check_win():
