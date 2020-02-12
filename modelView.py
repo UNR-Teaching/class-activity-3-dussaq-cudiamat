@@ -21,9 +21,3 @@ class ModelView:
             print(str(arr[i].name) + " ", end="")
         print("|")
         print("---------")
-
-
-model = ModelView()
-model.update_view([PlayToken.E, PlayToken.E, PlayToken.X, 
-                    PlayToken.E, PlayToken.E, PlayToken.O, 
-                    PlayToken.E, PlayToken.E, PlayToken.X])
