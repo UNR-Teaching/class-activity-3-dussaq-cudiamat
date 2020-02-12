@@ -33,7 +33,6 @@ class Board:
         if (token != PlayToken.X) or (token != PlayToken.O):
             return False
 
-
         # Check if the column and the row is valid input, if it is then mark the square
         # Also check if the space is already taken
         if(self.valid_input(column,row)):
