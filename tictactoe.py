@@ -51,8 +51,11 @@ class Board:
 
         :return: ????
         """
+        print("has_winner")
+        
         # Check Columns 0-2
         for columns in range(2):
+            print("columns: " + str(columns))
             if(self.tictactoeBoard[columns] == self.tictactoeBoard[columns+3] and
                self.tictactoeBoard[columns+3] == self.tictactoeBoard[columns+6]):
                 return True
