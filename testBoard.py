@@ -3,24 +3,25 @@ from playToken import PlayToken
 from tictactoe import Board
 
 class TestBoardMarkBoard(unittest.TestCase):
+
+    def setUp(self):
+        self.b = Board()
+
+    def test_markBoardSuccess(self):
+        self.assertTrue(self.b.mark_square(1, 1, PlayToken.X))
+
     def test_markBoardLocationCheck(self):
-        b = Board()
-        b.mark_square(1, 2, PlayToken.X)
-        self.assertEqual(b.tictactoeBoard, [PlayToken.E, PlayToken.E, PlayToken.E,
+        self.b.mark_square(1, 1, PlayToken.X)
+        self.assertEqual(self.b.tictactoeBoard, [PlayToken.E, PlayToken.E, PlayToken.E,
                                             PlayToken.E, PlayToken.X, PlayToken.E,
                                             PlayToken.E, PlayToken.E, PlayToken.E])
 
     def test_markBoardOutOfBounds(self):
-        b = Board()
-        self.assertFalse(b.mark_square(3, 3, PlayToken.X))
+        self.assertFalse(self.b.mark_square(3, 3, PlayToken.X))
 
     def test_markBoardBadInput(self):
-        b = Board()
-        self.assertFalse(b.mark_square(2, 2, 10))
+        self.assertFalse(self.b.mark_square(2, 2, 10))
 
-    def test_markBoardSuccess(self):
-        b = Board()
-        self.assertTrue(b.mark_square(1, 1, PlayToken.X))
 
 
 class TestBoardHasWinner(unittest.TestCase):

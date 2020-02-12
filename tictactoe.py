@@ -30,7 +30,7 @@ class Board:
         :return: ????
         """
         # Bounds checking for playtoken
-        if (token != PlayToken.X) or (token != PlayToken.O):
+        if (token is not PlayToken.X) and (token is not PlayToken.O):
             return False
 
         # Check if the column and the row is valid input, if it is then mark the square
@@ -39,7 +39,7 @@ class Board:
             input = (row*3) + column
 
             # Check if space is taken
-            if(self.tictactoeBoard[input] != PlayToken.E):
+            if(self.tictactoeBoard[input] is not PlayToken.E):
                 return False
             
             self.tictactoeBoard[input] = token
