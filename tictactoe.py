@@ -10,7 +10,7 @@ class Board:
         # 0-8
         # 0 - empty space, 1 - x's, 2 - o's
         for x in range(9):
-            self.tictactoeBoard.append(PlayToken.Empty)
+            self.tictactoeBoard.append(PlayToken.E)
 
     def valid_input(self, column,row):
         input = (row*3) + column
