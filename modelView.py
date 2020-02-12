@@ -1,7 +1,12 @@
 from playToken import PlayToken
+from typing import List
 
 class ModelView:
-    def update_view(self, arr):
+    def update_view(self, arr : List[PlayToken]):
+
+        if len(arr) is not 9:
+            raise TypeError("Array must be 9 units long")
+
         print("---------")
         print("| ", end="")
         for i in range(3):
@@ -19,4 +24,6 @@ class ModelView:
 
 
 model = ModelView()
-model.update_view([PlayToken.E, PlayToken.E, PlayToken.X, PlayToken.E, PlayToken.E, PlayToken.O, PlayToken.E, PlayToken.E, PlayToken.X])
+model.update_view([PlayToken.E, PlayToken.E, PlayToken.X, 
+                    PlayToken.E, PlayToken.E, PlayToken.O, 
+                    PlayToken.E, PlayToken.E, PlayToken.X])

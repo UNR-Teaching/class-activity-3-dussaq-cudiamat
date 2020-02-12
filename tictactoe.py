@@ -29,10 +29,6 @@ class Board:
 
         :return: ????
         """
-        # Check if playToken is valid
-        if(not isInstance(player, str)):
-            return False
-
 
         # Check if the column and the row is valid input, if it is then mark the square
         if(self.valid_input(column,row)):
