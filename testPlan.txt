@@ -1,0 +1,1 @@
+Our test plan is to be top to bottom, treating the controller as the top. The goal is to ensure that the interactions from the controller to the model are occuring correctly. Testing interaction between controller to view was not useful as the view as its functionality was limited to formatted console output.
