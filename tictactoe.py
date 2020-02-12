@@ -29,14 +29,21 @@ class Board:
 
         :return: ????
         """
+        # Bounds checking for playtoken
+        if (token != PlayToken.X) or (token != PlayToken.O):
+            return False
 
 
         # Check if the column and the row is valid input, if it is then mark the square
+        # Also check if the space is already taken
         if(self.valid_input(column,row)):
             input = (row*3) + column
+
+            # Check if space is taken
+            if(self.tictactoeBoard[input] != PlayToken.E):
+                return False
             
             self.tictactoeBoard[input] = token
-            # self.display_board() # Display should be handled by view
             return True
         else:
             return False
@@ -48,27 +55,34 @@ class Board:
 
         :return: ????
         """
-        print("has_winner")
         
         # Check Columns 0-2
         for columns in range(2):
             print("columns: " + str(columns))
             if(self.tictactoeBoard[columns] == self.tictactoeBoard[columns+3] and
-               self.tictactoeBoard[columns+3] == self.tictactoeBoard[columns+6]):
+               self.tictactoeBoard[columns+3] == self.tictactoeBoard[columns+6] and
+               (self.tictactoeBoard[columns] == PlayToken.X or
+                self.tictactoeBoard[columns] == PlayToken.O)):
                 return True
 
         # Check Rows..        
         for rows in range(0,7,3): # rows should equal 0, 3, 6
             if(self.tictactoeBoard[rows] == self.tictactoeBoard[rows+1] and
-               self.tictactoeBoard[rows+1] == self.tictactoeBoard[rows+2]):
+               self.tictactoeBoard[rows+1] == self.tictactoeBoard[rows+2] and
+               (self.tictactoeBoard[rows] == PlayToken.X or
+                self.tictactoeBoard[rows] == PlayToken.O)):
                 return True
 
         # Check Diagonals
         if(self.tictactoeBoard[0] == self.tictactoeBoard[4] and
-           self.tictactoeBoard[4] == self.tictactoeBoard[8]):
+           self.tictactoeBoard[4] == self.tictactoeBoard[8] and
+               (self.tictactoeBoard[0] == PlayToken.X or
+                self.tictactoeBoard[0] == PlayToken.O)):
             return True
         if(self.tictactoeBoard[2] == self.tictactoeBoard[4] and
-           self.tictactoeBoard[4] == self.tictactoeBoard[6]):
+           self.tictactoeBoard[4] == self.tictactoeBoard[6] and
+               (self.tictactoeBoard[2] == PlayToken.X or
+                self.tictactoeBoard[2] == PlayToken.O)):
             return True
 
         # Failed All Checks for winners
