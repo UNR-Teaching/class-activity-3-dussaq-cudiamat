@@ -10,9 +10,9 @@ class Board_controller:
         self.board.mark_square(column, row, token)
 
     def check_win(self):
-        if board.has_winner():
-            return true
+        if self.board.has_winner():
+            return True
         else:
-            return false
+            return False
 
         
