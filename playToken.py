@@ -1,5 +1,6 @@
 import enum
 
 class PlayToken(enum.Enum):
-    O = 0
+    E = 0
     X = 1
+    O = 2
