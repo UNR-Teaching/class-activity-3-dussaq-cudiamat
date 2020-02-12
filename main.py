@@ -1,9 +1,9 @@
+from board_controller import Board_controller
 from tictactoe import Board
 from modelView import ModelView
 
-board = Board()
-viewer = ModelView()
-viewer.update_view(board.get_board())
+game = Board_controller(Board())
+game.start_game()
 #board.play_game()
 
 #if __name__ == '__main__':
